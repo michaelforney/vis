@@ -1,7 +1,19 @@
 language: c
-compiler:
-  - gcc
 env:
-  - CFLAGS=
-  - CFLAGS="-Wextra -Wno-missing-field-initializers -Wno-unused-parameter"
-script: make local
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "HODXcDA8ScUAwsJnGCroF0D0G3uvYKXYF7JwgMTq+/WArZQ8pHXrrQFN/W+GBYdWzL9lUkksPQro6kibB71oixWZ3WdF71IaoDtISP/8T3FnKq4D8/H11C3P/aZXgAD9j2gzhiwlBPw180EKyLnoNkQLkklQHgtqeCFf8zgCJeM="
+
+install: make local
+
+script: true
+
+addons:
+  coverity_scan:
+    project:
+      name: "martanne/vis"
+    notification_email: mat@brain-dump.org
+    build_command_prepend:
+    build_command: make local
+    branch_pattern: coverity_scan
