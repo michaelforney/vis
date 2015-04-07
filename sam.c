@@ -122,6 +122,7 @@ static bool cmd_map(Vis*, Win*, Command*, const char *argv[], Cursor*, Filerange
 static bool cmd_unmap(Vis*, Win*, Command*, const char *argv[], Cursor*, Filerange*);
 static bool cmd_langmap(Vis*, Win*, Command*, const char *argv[], Cursor*, Filerange*);
 static bool cmd_user(Vis*, Win*, Command*, const char *argv[], Cursor*, Filerange*);
+static bool cmd_dump(Vis*, Win*, Command*, const char *argv[], Cursor*, Filerange*);
 
 /* command recognized at the ':'-prompt. commands are found using a unique
  * prefix match. that is if a command should be available under an abbreviation
@@ -170,6 +171,7 @@ static const CommandDef cmds[] = {
 	{ "wq",           "Write file and quit",                                       CMD_ARGV|CMD_FORCE|CMD_ADDRESS_NONE|CMD_ONCE, NULL, cmd_wq   },
 	{ "earlier",      "Go to older text state",                                    CMD_ARGV|CMD_ONCE,                   NULL, cmd_earlier_later },
 	{ "later",        "Go to newer text state",                                    CMD_ARGV|CMD_ONCE,                   NULL, cmd_earlier_later },
+	{ "dump",         "Dump piece table as graphiz data",                          CMD_ARGV|CMD_ONCE,                   NULL, cmd_dump          },
 	{  NULL,          NULL,                                                        CMD_NONE,                            NULL, NULL              },
 };
 

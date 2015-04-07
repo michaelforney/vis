@@ -771,3 +771,10 @@ static bool cmd_unmap(Vis *vis, Win *win, Command *cmd, const char *argv[], Curs
 	else
 		return vis_mode_unmap(vis, mode, lhs);
 }
+
+static bool cmd_dump(Vis *vis, Win *win, Command *cmd, const char *argv[], Cursor *cur, Filerange *range) {
+	if (!argv[1])
+		return false;
+	return text_dump(win->file->text, argv[1]);
+}
+
