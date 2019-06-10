@@ -1376,7 +1376,7 @@ static int extract(Vis *vis, Win *win, Command *cmd, const char *argv[], Selecti
 		size_t nsub = 1 + text_regex_nsub(cmd->regex);
 		if (nsub > 10)
 			nsub = 10;
-		RegexMatch match[nsub];
+		RegexMatch match[10];
 		while (start < end || trailing_match) {
 			trailing_match = false;
 			bool found = text_search_range_forward(txt, start,
